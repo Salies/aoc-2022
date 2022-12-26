@@ -7,14 +7,20 @@ fn main() {
     let reader = BufReader::new(file);
 
     // Aux is the accumulator for each elf
-    let (mut aux, mut max) : (u32, u32) = (0, 0);
+    let mut aux: u32 = 0;
+    let mut max: [u32; 3] = [0, 0, 0];
     // For each line
     for line in reader.lines() {
         let l: String = line.unwrap();
         // If line is empty, new elf
         if l.is_empty() {
-            if aux > max {
-                max = aux;
+            max.sort();
+            // Loop through max
+            for i in 0..max.len() {
+                if aux > max[i] {
+                    max[i] = aux;
+                    break;
+                }
             }
             aux = 0;
             continue;
@@ -24,5 +30,6 @@ fn main() {
         aux += calories;
     }
 
-    println!("The elf with most calories is carrying {} calories.", max);
+    let sum: u32 = max.iter().sum();
+    println!("The top three elves carrying most calories are carrying {} calories in total", sum);
 }
