@@ -14,11 +14,11 @@ fn main() {
         let l: String = line.unwrap();
         // If line is empty, new elf
         if l.is_empty() {
-            max.sort();
             // Loop through max
             for i in 0..max.len() {
                 if aux > max[i] {
                     max[i] = aux;
+                    max.sort();
                     break;
                 }
             }
