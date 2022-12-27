@@ -9,13 +9,13 @@ int main(void) {
     ifstream infile("inputs/day2.txt");
 
     // A data strucutre based solution
-    std::map<char, array<char, 3>> rule;
+    map<char, array<char, 3>> rule;
     rule['A'] = {'X', 'Y', 'Z'}; // rock
     rule['B'] = {'Y', 'Z', 'X'}; // paper
     rule['C'] = {'Z', 'X', 'Y'}; // scissors
 
     // default points for char, position in rule, bonus points
-    std::map<char, array<unsigned short, 3>> points;
+    map<char, array<unsigned short, 3>> points;
     points['X'] = {1, 2, 0};
     points['Y'] = {2, 0, 3};
     points['Z'] = {3, 1, 6};
