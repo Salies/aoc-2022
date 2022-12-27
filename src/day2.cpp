@@ -1,6 +1,5 @@
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <map>
 #include <array>
 
@@ -23,11 +22,7 @@ int main(void) {
 
     char input, answer;
     unsigned int sum_one = 0, sum_two = 0;
-    string line;
-    while(getline(infile, line)) {
-        input = line[0];
-        answer = line[2];
-
+    while(infile >> input >> answer) {
         sum_one += points[answer][0];
         sum_two += points[rule[input][points[answer][1]]][0] + points[answer][2];
 
