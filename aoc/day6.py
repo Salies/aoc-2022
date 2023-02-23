@@ -25,3 +25,11 @@ print("Part one:", i + 4)
 while not all_unique(line[i:i+14]):
     i += 1
 print("Part two:", i + 14)
+
+'''
+Piroquinha optimized version
+i = 3
+while not all_unique(string):
+    i += 1
+    string = string[1:] + line[i]
+'''
