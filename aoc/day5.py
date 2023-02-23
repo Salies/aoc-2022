@@ -48,4 +48,4 @@ top_crates = "".join([stacks[i][-1] for i in range(len(stacks))])
 print("Part two: " + "".join(top_crates))
 
 # Note: in Python, I'm pretty sure it would be more efficient to move multiple elements at once
-# instead of using pop. But I wanted to solve this problem purely based on data structure principles.
+# instead of using pop. But I wanted to solve this problem purely based on data structure principles.gi
