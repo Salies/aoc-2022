@@ -1,3 +1,13 @@
+# screw python sets
+# classic O(n) hash map solution ftw
+def all_unique(s):
+    hash_map = {}
+    for c in s:
+        if hash_map.get(c) == True:
+            return False
+        hash_map[c] = True
+    return True
+
 f = open('inputs/day6.txt', 'r')
 lines = f.readlines()
 f.close()
@@ -6,6 +16,12 @@ line = lines.pop(0).strip()
 
 i = 0
 # each 4 characters, check if they're all unique
-while len(set(line[i:i+4])) != 4:
+while not all_unique(line[i:i+4]):
     i += 1
 print("Part one:", i + 4)
+
+# Part two could be done in the first loop, but I think making another one is
+# a more elegant solution
+while not all_unique(line[i:i+14]):
+    i += 1
+print("Part two:", i + 14)
