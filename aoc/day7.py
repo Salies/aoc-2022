@@ -31,12 +31,15 @@ def calculate_size(node):
     return node.size
 
 def get_dir_to_delete(dir):
-    global root_dir
+    global best_possible
     global curr_min
-    if root_dir.size - dir.size < 40000000 and dir.size < curr_min:
+    # we already know that it's a valid candidate (see the check below)
+    # so we just need to check if it's better than the current one
+    if dir.size < curr_min:
         curr_min = dir.size
     for child in dir.children.values():
-        if isinstance(child, Directory):
+        # if it's already too small or too big, don't event check it
+        if isinstance(child, Directory) and child.size > best_possible:
             get_dir_to_delete(child)
 
 # now let's construct the actual tree from the input
@@ -85,5 +88,6 @@ calculate_size(root_dir)
 print("Part one:", total_sum)
 
 curr_min = root_dir.size
+best_possible = 30000000 - (70000000 - root_dir.size)
 get_dir_to_delete(root_dir)
 print("Part two:", curr_min)
