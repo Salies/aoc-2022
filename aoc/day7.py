@@ -38,7 +38,7 @@ def get_dir_to_delete(dir):
     if dir.size < curr_min:
         curr_min = dir.size
     for child in dir.children.values():
-        # if it's already too small or too big, don't event check it
+        # if it's already too small, don't event check it
         if isinstance(child, Directory) and child.size > best_possible:
             get_dir_to_delete(child)
 
