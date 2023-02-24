@@ -28,6 +28,9 @@ print("Part two:", i + 14)
 
 '''
 Piroquinha optimized version
+this version doesn't make much sense because I'm pretty sure it would result
+in more operations than the first one (two accesses and a rewrite, insted of just a 4-byte read)
+but I'm leaving it here just for the sake of it
 i = 3
 while not all_unique(string):
     i += 1
